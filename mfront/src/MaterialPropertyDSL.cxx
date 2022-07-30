@@ -18,6 +18,7 @@
 #include <iterator>
 #include <algorithm>
 #include <stdexcept>
+#include <iostream>
 
 #include "TFEL/Raise.hxx"
 #include "TFEL/Utilities/Token.hxx"
@@ -157,7 +158,20 @@ namespace mfront {
 
   void MaterialPropertyDSL::doPedanticChecks() const {
     // boucle sur md.inputs
+    const auto& mpi = this->md.inputs;
+    auto& log = getLogStream();
+    for (auto p2 = this->md.inputs.begin(); 
+            p2 != this->md.inputs.end(); ++p2) {
+                std::cout <<  p2->name << '\n';
+             }
+    // for (auto in : mpi) {
+    //   // getting all used variables
+    //   const auto& mpn = mp.getName();
+    //   mp.getDescription();
 
+    // }
+
+    
 
   }  // end of doPedanticChecks
 
